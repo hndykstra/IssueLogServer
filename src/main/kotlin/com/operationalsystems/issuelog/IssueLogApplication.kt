@@ -3,6 +3,9 @@ package com.operationalsystems.issuelog
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
+/**
+ * Spring Boot application classes.
+ */
 @SpringBootApplication
 class IssueLogApplication {
   companion object {

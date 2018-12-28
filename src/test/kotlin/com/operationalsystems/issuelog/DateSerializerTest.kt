@@ -8,6 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import java.util.*
 
+/**
+ * Test to verify kotlinx serializer methods.
+ */
 @RunWith(SpringRunner::class)
 @SpringBootTest
 class DateSerializerTest {

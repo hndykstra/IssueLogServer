@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service
 import java.util.*
 import javax.annotation.PostConstruct
 
+/**
+ * Service layer for issue log actions.
+ */
 @Service
 class IssueLogService @Autowired constructor(val elasticsearchTemplate : ElasticsearchTemplate,
                                              val repository : IssueLogRepository){
