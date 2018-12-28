@@ -16,7 +16,7 @@ import java.net.InetAddress
  */
 @Configuration
 @EnableElasticsearchRepositories(basePackages = ["com.operationalsystems.issuelog.repository"])
-class ElasticsearchConfiguration @Autowired(required = false) constructor(@Value("\${elasticsearch.host}") val host : String,
+class ElasticsearchConfiguration @Autowired(required = false) constructor(@Value("\${elasticsearch.host}") val host : String = "localhost",
                                              @Value( "\${elasticsearch.port}") val port : Int = 9300,
                                              @Value("\${elasticsearch.threads}") val threads : Int = 10) {
   @Bean

@@ -1,5 +1,7 @@
 package com.operationalsystems.issuelog.model
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect
+import com.fasterxml.jackson.annotation.JsonFormat
 import com.operationalsystems.issuelog.util.DateSerializer
 import kotlinx.serialization.ImplicitReflectionSerializer
 import kotlinx.serialization.Serializable
@@ -17,8 +19,9 @@ import java.util.*
 @Document(indexName = "issue_log", type="entry")
 data class IssueLogEntry(@Id var id: String? = null,
                          val createdBy: String = "",
-                         @Field(type = FieldType.Date, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'hh:mm:ss.SSS'Z'")
+                         @Field(type = FieldType.Date, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
                          @Serializable(with = DateSerializer::class)
+                         @get:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
                          val createdDate : Date = Date(),
                          val issue: String = "",
                          val analysis: String = "")

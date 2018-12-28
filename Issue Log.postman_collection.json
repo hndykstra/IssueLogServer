@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "0ac8e3d4-0695-4204-8944-008a6919e399",
+		"name": "Issue Log",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Entry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"creator\": \"george\",\n\t\"createdDate\": \"2018-12-27T12:00:00.000Z\",\n\t\"issue\": \"Test issue\",\n\t\"analysis\": \"I needed to test this.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/services/issueLogEntry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"issueLogEntry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Entries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/services/issueLogEntry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"issueLogEntry"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

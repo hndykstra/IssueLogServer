@@ -3,13 +3,17 @@ package com.operationalsystems.issuelog.util
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.StringDescriptor
 import java.text.SimpleDateFormat
-import java.util.Date
+import java.util.*
 
 @Serializer(forClass = Date::class)
 object DateSerializer : KSerializer<Date> {
   private val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'")
 
   override val descriptor: SerialDescriptor = StringDescriptor.withName("WithISO8601UTC")
+
+  init {
+    this.dateFormat.timeZone = TimeZone.getTimeZone("UTC")
+  }
 
   @ImplicitReflectionSerializer
   override fun serialize(output: Encoder, obj: Date) {
