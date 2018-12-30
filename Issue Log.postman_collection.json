@@ -164,7 +164,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/services/issueLogEntry/query?keyword=test",
+					"raw": "http://localhost:8080/services/issueLogEntry/query?fromDate=2018-12-25T00:00:00.000Z",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -177,8 +177,8 @@
 					],
 					"query": [
 						{
-							"key": "keyword",
-							"value": "test"
+							"key": "fromDate",
+							"value": "2018-12-25T00:00:00.000Z"
 						}
 					]
 				}
