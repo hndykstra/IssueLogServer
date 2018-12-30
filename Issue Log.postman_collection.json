@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"creator\": \"george\",\n\t\"createdDate\": \"2018-12-27T12:00:00.000Z\",\n\t\"issue\": \"Test issue\",\n\t\"analysis\": \"I needed to test this.\"\n}"
+					"raw": "{\n\t\"createdBy\": \"hans\",\n\t\"createdDate\": \"2018-12-29T12:00:00.000Z\",\n\t\"issue\": \"Test issue 29\",\n\t\"analysis\": \"I needed to author this.\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/services/issueLogEntry",
@@ -55,6 +55,131 @@
 					"path": [
 						"services",
 						"issueLogEntry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Entry",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"0a60cac3-6fc5-4bc8-8a69-8cf41e928cea\",\n\t\"createdBy\": \"george\",\n\t\"createdDate\": \"2018-12-27T12:00:00.000Z\",\n\t\"issue\": \"Test issue\",\n\t\"analysis\": \"I needed to test updating this.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/services/issueLogEntry/0a60cac3-6fc5-4bc8-8a69-8cf41e928cea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"issueLogEntry",
+						"0a60cac3-6fc5-4bc8-8a69-8cf41e928cea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Query Entries By Creator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/services/issueLogEntry/query?createdBy=hans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"issueLogEntry",
+						"query"
+					],
+					"query": [
+						{
+							"key": "createdBy",
+							"value": "hans"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Query Entries By Keyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/services/issueLogEntry/query?keyword=test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"issueLogEntry",
+						"query"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Query Entries By Date Range",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/services/issueLogEntry/query?keyword=test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"issueLogEntry",
+						"query"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "test"
+						}
 					]
 				}
 			},

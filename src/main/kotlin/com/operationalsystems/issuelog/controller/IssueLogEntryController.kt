@@ -21,14 +21,14 @@ class IssueLogEntryController @Autowired constructor(val issueLogService: IssueL
   private val logger = LoggerFactory.getLogger(IssueLogEntryController::class.java)
 
   @PostMapping
-  fun createIssueLogEntry(@RequestBody entry: IssueLogEntry) {
-    this.issueLogService.save(entry)
+  fun createIssueLogEntry(@RequestBody entry: IssueLogEntry) : IssueLogEntry {
+    return this.issueLogService.save(entry)
   }
 
   @PutMapping("/{adminBatchId}")
   fun updateIssueLogEntry(@PathVariable adminBatchId: String,
-                                 @RequestBody entry: IssueLogEntry) {
-    this.issueLogService.save(entry)
+                                 @RequestBody entry: IssueLogEntry) : IssueLogEntry {
+    return this.issueLogService.save(entry)
   }
 
   @GetMapping
@@ -39,7 +39,7 @@ class IssueLogEntryController @Autowired constructor(val issueLogService: IssueL
   }
 
   @GetMapping("/{entryId}")
-  fun getIssueLogEntry(entryId: String) : IssueLogEntry {
+  fun getIssueLogEntry(@PathVariable entryId: String) : IssueLogEntry {
     val foundEntry = this.issueLogService.findById(entryId) ?: throw NotFoundException("Not found ${entryId}")
 
     return foundEntry
@@ -47,7 +47,7 @@ class IssueLogEntryController @Autowired constructor(val issueLogService: IssueL
 
   @GetMapping("/query")
   fun queryLogEntries(@RequestParam("keyword") keyword: String?,
-                      @RequestParam("creator") creator: String?,
+                      @RequestParam("createdBy") creator: String?,
                       @RequestParam("fromDate") fromDate: String?,
                       @RequestParam("toDate") toDate: String?,
                       @RequestParam("page", defaultValue = "0") pageNumber: Int,
